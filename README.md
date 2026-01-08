@@ -1,20 +1,23 @@
 # 🌴 Pariwisata Kalimantan Timur Berkelanjutan
 ## SMK Negeri 7 Samarinda - XII PPLG 1
 
+[![Website](https://img.shields.io/badge/Website-fk0u.github.io%2Fpkaltim-success?style=for-the-badge&logo=github)](https://fk0u.github.io/pkaltim)
+
 ![Status](https://img.shields.io/badge/Progress-0%2F12%20Submitted-red)
 ![Deadline](https://img.shields.io/badge/Deadline-5%20Feb%202026-orange)
 ![Tech](https://img.shields.io/badge/Tech-PHP%20Native-777BB4?logo=php)
-![Hosting](https://img.shields.io/badge/Hosting-000webhost-00ADD8)
 
 > **Mini Web Project** - 12 Tim × 3 Siswa = 36 Web  
 > **Timeline:** 9 Januari - 5 Februari 2026  
 > **Kajur:** Bapak Hendra Yuni Irawan, S.T., M.Kom
 
+**🌐 Landing Page Project:** [fk0u.github.io/pkaltim](https://fk0u.github.io/pkaltim)
+
 ---
 
 ## 📋 Tentang Project
 
-Program Mini Web Project untuk meningkatkan keterampilan siswa XII PPLG 1 dalam membangun aplikasi web PHP native dengan tema **Pariwisata Kalimantan Timur Berkelanjutan**. Setiap tim (3 orang) membuat 1 website tentang wisata Kaltim dengan subtema yang sudah ditentukan.
+Program Mini Web Project untuk meningkatkan keterampilan siswa XII PPLG 1 dalam membangun aplikasi web PHP native dengan tema **Pariwisata Kalimantan Timur Berkelanjutan**. Setiap tim (3 orang) bebas memilih 1 dari 5 subtema yang tersedia (bukan ditentukan panitia).
 
 ### ⚠️ ATURAN PENTING!
 
@@ -58,18 +61,18 @@ Program Mini Web Project untuk meningkatkan keterampilan siswa XII PPLG 1 dalam 
 
 | Tim | Anggota | Subtema | Status | Live Demo | GitHub | PIC |
 |:---:|---------|---------|:------:|-----------|--------|:---:|
-| **1** | Glenn, Bregas, Reza | Wisata Alam | 🔄 Setup | - | - | **Navies** |
-| **2** | Chalel, Ikhsan, Ridho | Kuliner Khas | 🔄 Setup | - | - | **Widhi** |
-| **3** | Navies, Rio, Habibi | Religi | 🔄 Setup | - | - | **Navies** |
-| **4** | Ghani, Aldi, Dhika | Budaya | 🔄 Setup | - | - | **Ghani** |
-| **5** | Lawindra, Weka, Farhan | Marine Transport | 🔄 Setup | - | - | **Ghani** |
-| **6** | Tristan, Fauzan, Nizar | Homestay | 🔄 Setup | - | - | **Navies** |
-| **7** | Ghatan, Wahyu, Abi | Itinerary | 🔄 Setup | - | - | **Widhi** |
-| **8** | Lutfi, Ibran, Hilal | Review Wisata | 🔄 Setup | - | - | **Ghani** |
-| **9** | Zidan, Rafik, Qiqi | Peta Wisata | 🔄 Setup | - | - | **Navies** |
-| **10** | Aji, Rafif, Diaz | Tour Guide | 🔄 Setup | - | - | **Ghani** |
-| **11** | Asnia, Diva, Nabila | Event | 🔄 Setup | - | - | **Widhi** |
-| **12** | Widhi, Nasywa, Mozel | Paket Wisata | 🔄 Setup | - | - | **Widhi** |
+| **1** | Glenn, Bregas, Reza | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Navies** |
+| **2** | Chalel, Ikhsan, Ridho | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Widhi** |
+| **3** | Navies, Rio, Habibi | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Navies** |
+| **4** | Ghani, Aldi, Dhika | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Ghani** |
+| **5** | Lawindra, Weka, Farhan | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Ghani** |
+| **6** | Tristan, Fauzan, Nizar | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Navies** |
+| **7** | Ghatan, Wahyu, Abi | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Widhi** |
+| **8** | Lutfi, Ibran, Hilal | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Ghani** |
+| **9** | Zidan, Rafik, Qiqi | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Navies** |
+| **10** | Aji, Rafif, Diaz | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Ghani** |
+| **11** | Asnia, Diva, Nabila | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Widhi** |
+| **12** | Widhi, Nasywa, Mozel | Belum memilih (pilih 1/5) | 🔄 Setup | - | - | **Widhi** |
 
 **Legend:**
 - 🔄 Setup = Belum mulai
@@ -80,6 +83,8 @@ Program Mini Web Project untuk meningkatkan keterampilan siswa XII PPLG 1 dalam 
 ---
 
 ## 🎨 Pilihan Subtema
+
+Setiap tim memilih bebas **1 dari 5 subtema** berikut (tidak ditentukan panitia).
 
 1. **🏞️ Wisata Alam** - Destinasi alam (gunung, pantai, air terjun)
 2. **🍜 Kuliner Khas** - Makanan dan minuman tradisional Kaltim
