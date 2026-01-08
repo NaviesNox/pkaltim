@@ -215,9 +215,9 @@
     <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div class="text-center mb-12 space-y-4">
             <h2 class="text-3xl md:text-4xl font-bold">Pilih 1 dari 5 Subtema</h2>
-            <p class="text-gray-500 dark:text-gray-400">Tim memilih sendiri subtema berikut (first come, first served jika ada bentrok)</p>
+            <p class="text-gray-500 dark:text-gray-400">Tim memilih sendiri subtema berikut (boleh sama antar tim)</p>
             <div class="flex flex-wrap justify-center gap-3">
-                <a href="https://github.com/fk0u/pkaltim/issues/new?labels=subtema&title=%5BTim%20XX%5D%20Claim%20Subtema&body=Isi%20format%20ini%3A%0A-%20Tim%3A%20XX%0A-%20Subtema%3A%20%28pilih%201%20dari%205%29%0A-%20Nama%20anggota%20%2B%20PIC%0A" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full text-sm font-semibold shadow-lg transition">Claim Subtema via Issue</a>
+                <button id="openClaimModal" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full text-sm font-semibold shadow-lg transition">Claim Subtema via Modal</button>
                 <a href="https://github.com/fk0u/pkaltim/blob/main/docs/TUGAS-MINI-PROJECT.md" class="glass-card px-5 py-3 rounded-full text-sm font-semibold border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition" target="_blank">Lihat Detail Subtema</a>
             </div>
         </div>
@@ -499,6 +499,55 @@
         </div>
     </section>
 
+    <!-- Claim Modal -->
+    <div id="claimModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50 px-4">
+        <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-lg w-full border border-gray-200 dark:border-gray-800 p-6 relative">
+            <button id="closeClaimModal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">✕</button>
+            <div class="mb-4">
+                <p class="text-sm text-gray-500">Claim subtema via GitHub Issue</p>
+                <h3 class="text-2xl font-bold">Form Claim Subtema</h3>
+            </div>
+            <div class="space-y-4">
+                <label class="block text-sm font-semibold">Nomor Tim</label>
+                <select id="claimTeamNumber" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2">
+                    <option value="">Pilih Tim (01-12)</option>
+                    <option value="1">Tim 01</option>
+                    <option value="2">Tim 02</option>
+                    <option value="3">Tim 03</option>
+                    <option value="4">Tim 04</option>
+                    <option value="5">Tim 05</option>
+                    <option value="6">Tim 06</option>
+                    <option value="7">Tim 07</option>
+                    <option value="8">Tim 08</option>
+                    <option value="9">Tim 09</option>
+                    <option value="10">Tim 10</option>
+                    <option value="11">Tim 11</option>
+                    <option value="12">Tim 12</option>
+                </select>
+
+                <label class="block text-sm font-semibold">Nama Tim</label>
+                <input id="claimTeamName" type="text" placeholder="Contoh: Tim 01 - Wisata Alam" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2" />
+
+                <label class="block text-sm font-semibold">Subtema yang diambil</label>
+                <select id="claimSubtema" class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-2">
+                    <option value="">Pilih 1 dari 5 subtema</option>
+                    <option>Wisata Alam</option>
+                    <option>Kuliner Khas</option>
+                    <option>Religi & Budaya</option>
+                    <option>Marine & Transport</option>
+                    <option>Event & Paket</option>
+                </select>
+
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 text-sm border border-gray-200 dark:border-gray-700">
+                    <div class="font-semibold mb-2">Anggota & PIC (otomatis)</div>
+                    <div id="claimMembers" class="text-gray-600 dark:text-gray-300">Pilih nomor tim untuk melihat anggota.</div>
+                </div>
+
+                <button id="submitClaim" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">Buka Issue Claim Subtema</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-20 pb-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -576,9 +625,24 @@
             applyTheme(isDark ? 'light' : 'dark');
         });
 
+        // Team data mapping
+        const teamsData = {
+            1: { name: 'Tim 01', members: ['Glenn', 'Bregas', 'Reza'], pic: 'Navies' },
+            2: { name: 'Tim 02', members: ['Chalel', 'Ikhsan', 'Ridho'], pic: 'Widhi' },
+            3: { name: 'Tim 03', members: ['Navies', 'Rio', 'Habibi'], pic: 'Navies' },
+            4: { name: 'Tim 04', members: ['Ghani', 'Aldi', 'Dhika'], pic: 'Ghani' },
+            5: { name: 'Tim 05', members: ['Lawindra', 'Weka', 'Farhan'], pic: 'Ghani' },
+            6: { name: 'Tim 06', members: ['Tristan', 'Fauzan', 'Nizar'], pic: 'Navies' },
+            7: { name: 'Tim 07', members: ['Ghatan', 'Wahyu', 'Abi'], pic: 'Widhi' },
+            8: { name: 'Tim 08', members: ['Lutfi', 'Ibran', 'Hilal'], pic: 'Ghani' },
+            9: { name: 'Tim 09', members: ['Zidan', 'Rafik', 'Qiqi'], pic: 'Navies' },
+            10: { name: 'Tim 10', members: ['Aji', 'Rafif', 'Diaz'], pic: 'Ghani' },
+            11: { name: 'Tim 11', members: ['Asnia', 'Diva', 'Nabila'], pic: 'Widhi' },
+            12: { name: 'Tim 12', members: ['Widhi', 'Nasywa', 'Mozel'], pic: 'Widhi' },
+        };
+
         // Inject status badge + claim button on each team card
-        const claimUrl = 'https://github.com/fk0u/pkaltim/issues/new?labels=subtema&title=%5BTim%20XX%5D%20Claim%20Subtema&body=Isi%20format%20ini%3A%0A-%20Tim%3A%20XX%0A-%20Subtema%3A%20%28pilih%201%20dari%205%29%0A-%20Nama%20anggota%20%2B%20PIC%0A';
-        document.querySelectorAll('#teams .group.glass-card').forEach(card => {
+        document.querySelectorAll('#teams .group.glass-card').forEach((card, idx) => {
             const p = card.querySelector('p.text-sm');
             if (!p) return;
             const wrapper = document.createElement('div');
@@ -588,13 +652,94 @@
                     <span class="w-2 h-2 rounded-full bg-amber-500"></span>
                     Subtema: belum dipilih
                 </span>
-                <a href="${claimUrl}" target="_blank" class="text-xs inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition">
+                <button data-claim="true" data-team="${idx + 1}" class="text-xs inline-flex items-center justify-center gap-2 px-3 py-2 rounded-full bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition">
                     Claim Subtema
                     <span aria-hidden="true">→</span>
-                </a>
+                </button>
             `;
             p.insertAdjacentElement('afterend', wrapper);
         });
+
+        // Modal logic
+        const modal = document.getElementById('claimModal');
+        const openClaimModalBtn = document.getElementById('openClaimModal');
+        const closeClaimModalBtn = document.getElementById('closeClaimModal');
+        const submitClaimBtn = document.getElementById('submitClaim');
+        const teamNumberInput = document.getElementById('claimTeamNumber');
+        const teamNameInput = document.getElementById('claimTeamName');
+        const subtemaInput = document.getElementById('claimSubtema');
+        const membersBox = document.getElementById('claimMembers');
+
+        function openModal(prefillTeam) {
+            if (prefillTeam) {
+                teamNumberInput.value = prefillTeam.toString();
+                fillMembers(prefillTeam);
+                teamNameInput.value = teamsData[prefillTeam]?.name || '';
+            }
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function fillMembers(num) {
+            const data = teamsData[num];
+            if (!data) {
+                membersBox.textContent = 'Pilih nomor tim untuk melihat anggota.';
+                return;
+            }
+            membersBox.innerHTML = `
+                <div class="font-semibold">${data.name}</div>
+                <div class="text-sm text-gray-500">PIC: ${data.pic}</div>
+                <div class="mt-1 text-sm text-gray-600 dark:text-gray-200">Anggota: ${data.members.join(', ')}</div>
+            `;
+        }
+
+        if (teamNumberInput) {
+            teamNumberInput.addEventListener('change', (e) => {
+                fillMembers(e.target.value);
+                const data = teamsData[e.target.value];
+                teamNameInput.value = data?.name || '';
+            });
+        }
+
+        if (openClaimModalBtn) {
+            openClaimModalBtn.addEventListener('click', () => openModal());
+        }
+        if (closeClaimModalBtn) {
+            closeClaimModalBtn.addEventListener('click', closeModal);
+        }
+        modal?.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.querySelectorAll('[data-claim="true"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const t = btn.getAttribute('data-team');
+                openModal(t || undefined);
+            });
+        });
+
+        if (submitClaimBtn) {
+            submitClaimBtn.addEventListener('click', () => {
+                const num = teamNumberInput.value;
+                const name = teamNameInput.value.trim();
+                const subtema = subtemaInput.value.trim();
+                const data = teamsData[num];
+                if (!num || !subtema) {
+                    alert('Pilih nomor tim dan subtema terlebih dahulu.');
+                    return;
+                }
+                const title = encodeURIComponent(`[Tim ${num.padStart ? num.padStart(2, '0') : num}] Claim Subtema - ${subtema}`);
+                const body = encodeURIComponent(`Isi format ini:\n- Tim: ${num} (${name || data?.name || ''})\n- Subtema: ${subtema}\n- Anggota: ${data ? data.members.join(', ') : '-'}\n- PIC: ${data ? data.pic : '-'}\n\nCatatan: subtema boleh sama dengan tim lain.`);
+                const url = `https://github.com/fk0u/pkaltim/issues/new?labels=subtema&title=${title}&body=${body}`;
+                window.open(url, '_blank');
+                closeModal();
+            });
+        }
     </script>
 </body>
 </html>

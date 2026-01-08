@@ -11,7 +11,7 @@
 > **Timeline:** 9 Januari - 5 Februari 2026  
 > **Kajur:** Bapak Hendra Yuni Irawan, S.T., M.Kom
 
-**🌐 Landing Page Project:** [fk0u.github.io/pkaltim](https://fk0u.github.io/pkaltim)
+**🌐 Landing Page Project:** [fk0u.github.io/pkaltim](https://fk0u.github.io/pkaltim) — sudah mendukung light/dark mode, ringkasan progress, tombol claim subtema, dan akses cepat ke panduan.
 
 ---
 
@@ -92,6 +92,11 @@ Setiap tim memilih bebas **1 dari 5 subtema** berikut (tidak ditentukan panitia)
 4. **⛴️ Marine & Transport** - Ferry, speedboat, transportasi wisata
 5. **🎪 Event & Paket** - Event tahunan, paket wisata, itinerary
 
+**Cara klaim subtema:**
+- Buka issue: https://github.com/fk0u/pkaltim/issues/new?labels=subtema&title=%5BTim%20XX%5D%20Claim%20Subtema&body=Isi%20format%20ini%3A%0A-%20Tim%3A%20XX%0A-%20Subtema%3A%20%28pilih%201%20dari%205%29%0A-%20Nama%20anggota%20%2B%20PIC%0A
+- Format judul: `[Tim XX] Claim Subtema`
+- Tim bebas memilih subtema (boleh sama dengan tim lain)
+
 ---
 
 ## 📚 Dokumentasi
@@ -102,7 +107,7 @@ Setiap tim memilih bebas **1 dari 5 subtema** berikut (tidak ditentukan panitia)
 
 ---
 
-## � Cara Mulai (untuk Pemula GitHub)
+## 🚀 Cara Mulai (untuk Pemula GitHub)
 
 ### 1️⃣ Download Project (Pilih Salah Satu)
 
@@ -137,6 +142,7 @@ cd teams/tim-contoh
 - Buat file di folder tim kalian
 - Jangan edit file tim lain!
 - Commit progress ke GitHub (lihat panduan di bawah)
+- Klaim subtema dulu via issue (link di atas) sebelum lanjut kerja
 
 📖 **Panduan Lengkap:** [docs/TUGAS-MINI-PROJECT.md](docs/TUGAS-MINI-PROJECT.md)  
 📘 **Cara Pakai GitHub:** [docs/submission-guide.md](docs/submission-guide.md)
